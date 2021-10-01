@@ -67,8 +67,10 @@ class Sheets extends Component{
         else if (this.props.loggedIn) {
             return (
                 <div>
-                    <p>{this.props.userText}</p>
+                    <i>{this.props.userText}!</i>
+                    <br/>
                     <h3>Now you can create PDF from your Google Sheet</h3>
+                    <br/>
                     <p>Select your Sheet</p>
                     <SheetList loading={this.props.sheetsLoading}
                         sheets={this.props.sheets}
@@ -90,7 +92,6 @@ class Sheets extends Component{
                         </InputGroup>
                     </form>
 
-                    <p>{this.props.spreadsheetId}</p>
                 </div>
             )
         }

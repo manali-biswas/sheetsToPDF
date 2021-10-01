@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #eeb61c;
+  background-color: #e6da37;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -75,4 +75,12 @@ transform: scale(1.4) skewX(-0.4deg);
 .footer{
   color: black;
   font-size: initial;
+}
+
+img{
+  width: 15%;
+}
+
+.heading{
+  text-decoration: underline;
 }
