@@ -1,0 +1,12 @@
+export const LOGIN_USER = 'LOGIN_USER';
+export const NO_USER = 'NO_USER';
+export const LOADING_USER = 'LOADING_USER';
+export const ADD_SHEETS = 'ADD_SHEETS';
+export const ERR_SHEETS = 'ERR_SHEETS';
+export const LOADING_SHEETS = 'LOADING_SHEETS';
+export const ADD_METADATA = 'ADD_METADATA';
+export const ERR_METADATA = 'ERR_METADATA';
+export const LOADING_METADATA = 'LOADING_METADATA';
+export const ADD_HEADERDATA = 'ADD_HEADERDATA';
+export const ERR_HEADERDATA = 'ERR_HEADERDATA';
+export const LOADING_HEADERDATA = 'LOADING_HEADERDATA';
