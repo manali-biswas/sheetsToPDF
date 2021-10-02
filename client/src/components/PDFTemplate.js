@@ -2,6 +2,25 @@ import { Component } from "react";
 import { Button } from "react-bootstrap";
 import FroalaEditor from "react-froala-wysiwyg";
 
+const OrientationViews = props => {
+    if (props.orientation === 'landscape') {
+        return (
+            <div>
+                <Button variant="light mr-2">Landscape</Button>
+                <Button variant="outline-light" onClick={() => props.changeOrientation('portrait')}>Portrait</Button>
+            </div>
+        );
+    }
+    else {
+        return (
+            <div>
+                <Button variant="outline-light mr-2" onClick={() => props.changeOrientation('landscape')}>Landscape</Button>
+                <Button variant="light">Portrait</Button>
+            </div>
+        );
+    }
+}
+
 const HeaderDataItemPDF = props => {
     if (props.selectedData.includes(props.index)) {
         return (
@@ -61,6 +80,10 @@ class PDFTemplate extends Component{
                     <div>
                         {headerDataViews}
                     </div>
+
+                    <p>Select PDF Orientation</p>
+                    <OrientationViews orientation={this.props.orientation}
+                    changeOrientation={this.props.changeOrientation}/>
                 </div>
                 <br/>
                 <div className="container">

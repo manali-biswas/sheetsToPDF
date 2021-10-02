@@ -42,7 +42,13 @@ class Main extends Component {
             sheetIndex: 0,
             headerId: 1,
             selectedData: [],
-            selectedRow: 'all'
+            selectedRow: 'all',
+            opt: {
+                margin: 1,
+                htmlcanvas: {scale: 2},
+                jsPDF: { unit: 'in', orientation: 'landscape' }
+            },
+            orientation: 'landscape'
         }
 
         this.updateSpreadsheetId = this.updateSpreadsheetId.bind(this);
@@ -52,6 +58,7 @@ class Main extends Component {
         this.removeSelectedData = this.removeSelectedData.bind(this);
         this.updateSelectedRow = this.updateSelectedRow.bind(this);
         this.makePDF = this.makePDF.bind(this);
+        this.changeOrientation = this.changeOrientation.bind(this);
     }
 
     componentDidMount(){
@@ -117,19 +124,28 @@ class Main extends Component {
         });
     };
 
+    changeOrientation(orient) {
+        this.setState({
+            orientation: orient
+        });
+    }
+
     makePDF(content) {
         content=content.replaceAll("<button>", "<%=");
-        content=content.replaceAll("</button>","%>")
+        content = content.replaceAll("</button>", "%>");
         var html;
+        var options = this.state.opt;
+        options.jsPDF.orientation = this.state.orientation;
         if (this.state.selectedRow !== 'all') {
             var row = this.props.headerdata.data[parseInt(this.state.selectedRow)];
-            html = ejs.render(content, {row: row});
-            html2pdf().from(html).save();
+            html = ejs.render(content, { row: row });
+            console.log(html);
+            html2pdf().from(html).set(options).save();
         }
         else {
             this.props.headerdata.data.forEach((row) => {
                 html = ejs.render(content, { row: row });
-                html2pdf().from(html).save();
+                html2pdf().from(html).set(options).save();
             })
         }
     }
@@ -175,6 +191,8 @@ class Main extends Component {
                             headerData={this.props.headerdata.headerdata}
                             selectedData={this.state.selectedData}
                             makePDF={this.makePDF}
+                            orientation={this.state.orientation}
+                            changeOrientation={this.changeOrientation}
                         />
                     </Route>
                     
