@@ -77,7 +77,7 @@ class PDFTemplate extends Component{
                 
                 <div>
                     <p>Select data to insert</p>
-                    <div>
+                    <div className="mb-2">
                         {headerDataViews}
                     </div>
 

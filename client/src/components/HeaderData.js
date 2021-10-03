@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Button } from "react-bootstrap";
+import Loading from "./Loading";
 
 const HeaderDataItem = props => {
     if (props.selectedData.includes(props.index)) {
@@ -21,9 +22,14 @@ const HeaderDataItem = props => {
 class HeaderData extends Component {
     render() {
         if (this.props.headerDataLoading) {
+            if(this.props.sheetsMetadataLoading)
             return (
                 <div></div>
-            );
+                );
+            else
+                return (
+                    <div><Loading/></div>
+                )
         }
         else {
             const headerDataViews = this.props.headerData.map((data, index) => {

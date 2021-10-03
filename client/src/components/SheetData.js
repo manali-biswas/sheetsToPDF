@@ -23,6 +23,7 @@ class SheetData extends Component{
                         sheetsMetadata={this.props.sheetsMetadata} />
                     
                     <HeaderData headerDataLoading={this.props.headerDataLoading}
+                        sheetsMetadataLoading={this.props.sheetsMetadataLoading}
                         headerData={this.props.headerData}
                         selectedData={this.props.selectedData}
                         updateSelectedData={this.props.updateSelectedData}

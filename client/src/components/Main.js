@@ -63,15 +63,16 @@ class Main extends Component {
 
     componentDidMount(){
         this.props.fetchUser();
-        this.props.fetchSheets();
-        if (this.state.spreadsheetId !== '') {
-            this.props.fetchMetadata(this.state.spreadsheetId);
+        if (this.props.user.loggedIn) {
+            if (this.state.spreadsheetId !== '') {
+                this.props.fetchMetadata(this.state.spreadsheetId);
                 this.props.fetchHeaderdata(
                     this.state.spreadsheetId,
                     this.props.metadata.sheets[this.state.sheetIndex].properties.title,
                     this.state.headerId,
                     this.props.metadata.sheets[this.state.sheetIndex].properties.gridProperties.columnCount
                 );
+            }
         }
     }
 
@@ -161,7 +162,8 @@ class Main extends Component {
                         <Login />
                     </Route>
                     <Route path="/sheets" >
-                        <Sheets userText={this.props.user.text}
+                            <Sheets userText={this.props.user.text}
+                                fetchSheets={this.props.fetchSheets}
                             updateSpreadsheetId={this.updateSpreadsheetId}
                             spreadsheetId={this.state.spreadsheetId}
                             userLoading={this.props.user.loading}

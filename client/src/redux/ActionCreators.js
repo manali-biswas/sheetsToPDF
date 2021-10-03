@@ -61,7 +61,6 @@ export const fetchMetadata = (id) => (dispatch) => {
 
     return axios.get('/api/sheetsMetaData/'+id)
         .then(res => {
-            console.log(res.data);
             if (res.data === null) {
                 dispatch(errMetadata());
             }
@@ -89,7 +88,6 @@ export const fetchHeaderdata = (id, sheetName, row, cols) => (dispatch) => {
 
     return axios.get('/api/headerData/' + id+'/'+sheetName+'/'+row+'/'+cols)
         .then(res => {
-            console.log(res.data);
             if (res.data === null) {
                 dispatch(errHeaderdata());
             }
