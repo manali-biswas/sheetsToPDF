@@ -1,6 +1,8 @@
+import { Spinner } from "react-bootstrap";
+
 const Loading = props => {
     return (
-        <p>Loading</p>
+        <Spinner animation="border" variant="primary" />
     )
 }
 
