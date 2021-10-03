@@ -1,6 +1,9 @@
+.Background{
+  background-color: #e6da37;
+}
+
 .App {
   text-align: center;
-  background-color: #e6da37;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

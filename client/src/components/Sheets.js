@@ -48,6 +48,8 @@ class Sheets extends Component{
     }
 
     componentDidMount() {
+        console.log("h");
+        console.log(this.props.loggedIn)
         if (this.props.loggedIn)
             this.props.fetchSheets();
     }

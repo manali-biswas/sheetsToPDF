@@ -153,7 +153,7 @@ class Main extends Component {
 
     render() {
         return (
-            <div>
+            <div className="Background">
             <div className="App">
 
                 <Switch>
