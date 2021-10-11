@@ -7,6 +7,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'froala-editor/js/froala_editor.pkgd.min.js';
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
+import 'froala-editor/js/plugins/image.min.js';
+import 'froala-editor/js/plugins/fullscreen.min.js';
+import 'froala-editor/js/plugins/code_view.min.js';
+import 'froala-editor/js/plugins/colors.min.js';
+import 'froala-editor/js/plugins/table.min.js';
+import 'froala-editor/js/plugins/lists.min.js';
 import 'font-awesome/css/font-awesome.css';
 
 ReactDOM.render(

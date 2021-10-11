@@ -70,6 +70,18 @@ class PDFTemplate extends Component{
             />);
         });
 
+        const config = {
+            placeholderText: "Make your PDF Template here!",
+            imageUpload: true,
+            imageMaxSize: 5 * 1024 * 1024,
+            imageAllowedTypes: ['png','jpg','jpeg'],
+            events: {
+                'image.uploaded': (res) => {
+                    console.log(res);
+                }
+            }
+        }
+
         return (
             <div>
                 <h3 style={{ textDecoration: "underline" }}>Make the template for the PDF</h3>
@@ -87,7 +99,7 @@ class PDFTemplate extends Component{
                 </div>
                 <br/>
                 <div className="container">
-                    <FroalaEditor tag="textarea" model={this.state.content} onModelChange={ this.handleModelChange }/>
+                    <FroalaEditor tag="textarea" config={config} model={this.state.content} onModelChange={ this.handleModelChange }/>
                 </div>
                 { //keep a button and use the pdf template to make pdfs in client side
                 }

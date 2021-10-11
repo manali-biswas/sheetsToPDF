@@ -47,13 +47,6 @@ class Sheets extends Component{
         this.handleChange = this.handleChange.bind(this);
     }
 
-    componentDidMount() {
-        console.log("h");
-        console.log(this.props.loggedIn)
-        if (this.props.loggedIn)
-            this.props.fetchSheets();
-    }
-
     handleChange(event) {
         this.setState({
             url: event.target.value
