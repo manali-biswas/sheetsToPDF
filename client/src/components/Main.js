@@ -44,8 +44,8 @@ class Main extends Component {
             selectedData: [],
             selectedRow: 'all',
             opt: {
-                margin: 1,
-                htmlcanvas: {scale: 2},
+                margin: 0.5,
+                htmlcanvas: {scale: 2, allowTaint:true},
                 jsPDF: { unit: 'in', orientation: 'landscape' }
             },
             orientation: 'landscape'
@@ -63,7 +63,7 @@ class Main extends Component {
 
     componentDidMount(){
         this.props.fetchUser();
-        if (this.props.user.loggedIn) {
+            this.props.fetchSheets();
             if (this.state.spreadsheetId !== '') {
                 this.props.fetchMetadata(this.state.spreadsheetId);
                 this.props.fetchHeaderdata(
@@ -73,7 +73,6 @@ class Main extends Component {
                     this.props.metadata.sheets[this.state.sheetIndex].properties.gridProperties.columnCount
                 );
             }
-        }
     }
 
     updateSpreadsheetId(id) {
@@ -153,7 +152,7 @@ class Main extends Component {
 
     render() {
         return (
-            <div>
+            <div className="Background">
             <div className="App">
 
                 <Switch>

@@ -32,6 +32,7 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/api/sheets', async (req, res) => {
+    if (!req.user) res.send(null);
     const auth = getAuth(req.user.accessToken, req.user.refreshToken);
     const files = await listSheets(auth);
     res.json(files);
